@@ -1,7 +1,7 @@
 
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
-  return knex('authors').onDelete('cascade')
+  return knex('authors').raw('TRUNCATE authors CASCADE; ALTER SEQUENCE book_id_seq restart with 7;')
     .then(function () {
       // Inserts seed entries
       return knex('authors').insert([
