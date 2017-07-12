@@ -2,27 +2,27 @@ const express = require('express');
 const router = express.Router();
 const queries = require('../db/queries.js');
 
-function isValidID(req, res, next) {
-  if(!isNaN(req.params.id)) {
-    return next();
-  } else {
-    next(new Error('Invalid ID'));
-  }
-};
-
-function validAuthor(author) {
-  const hasFirst = typeof author.first == 'string' && author.first.trim() != '';
-  const hasLast = typeof author.last == 'string' && author.last.trim() != '';
-  const hasPortrait = typeof author.portrait == 'string' && author.portrait.trim() != '';
-  const hasBio = typeof author.bio == 'string' && author.bio.trim() != '';
-  return hasFirst && hasPortrait && hasBio && hasLast;
-};
-
-router.get('/', (req, res) => {
-  queries.getAll().then(authors => {
-    res.json(authors);
-  });
-});
+// function isValidID(req, res, next) {
+//   if(!isNaN(req.params.id)) {
+//     return next();
+//   } else {
+//     next(new Error('Invalid ID'));
+//   }
+// };
+//
+// function validAuthor(author) {
+//   const hasFirst = typeof author.first == 'string' && author.first.trim() != '';
+//   const hasLast = typeof author.last == 'string' && author.last.trim() != '';
+//   const hasPortrait = typeof author.portrait == 'string' && author.portrait.trim() != '';
+//   const hasBio = typeof author.bio == 'string' && author.bio.trim() != '';
+//   return hasFirst && hasPortrait && hasBio && hasLast;
+// };
+//
+// router.get('/', (req, res) => {
+//   queries.getAll().then(authors => {
+//     res.json(authors);
+//   });
+// });
 
 // router.get('/:id', isValidID, (req, res) => {
 //   queries.getOne(req.params.id).then(author) => {
