@@ -1,6 +1,6 @@
 const knex = require('./knex');
 
-module.exports = [
+module.exports = {
   {
     getAll() {
       return knex('books')
@@ -50,5 +50,5 @@ module.exports = [
     delete(id) {
       return knex('authors').where('id', id).del();
     }
-  },
-]
+  }
+};
