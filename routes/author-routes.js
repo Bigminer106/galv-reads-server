@@ -26,36 +26,38 @@ router.get('/', (req, res) => {
   });
 });
 
-router.get('/:id', isValidID, (req, res) => {
-  queries.getOne(req.params.id).then(author) => {
-    res.json(author);
-  };
-});
+// router.get('/:id', isValidID, (req, res) => {
+//   queries.getOne(req.params.id).then(author) => {
+//     res.json(author);
+//   };
+// });
+//
+// router.post('/', (req, res, next) => {
+//   if (validAuthor(req.body)) {
+//     queries.create(req.body).then(authors => {
+//       res.json(authors[0]);
+//     })
+//   } else {
+//     next(new Error('Invalid Author'))
+//   };
+// });
+//
+// router.put('/:id', isValidID, (req, res, next) => {
+//   if (validAuthor(req.body)) {
+//     queries.update(req.params.id, req.body).then(authors => {
+//       res.json(authors[0]);
+//     });
+//   } else {
+//     next(new Error('Invalid Author'))
+//   };
+// });
+//
+// router.delete('/:id', isValidID, (req, res) => {
+//   queries.delete(req.params.id).then(() => {
+//     res.json({
+//       deleted: true
+//     });
+//   });
+// });
 
-router.post('/', (req, res, next) => {
-  if (validAuthor(req.body)) {
-    queries.create(req.body).then(authors => {
-      res.json(authors[0]);
-    })
-  } else {
-    next(new Error('Invalid Author'))
-  };
-});
-
-router.put('/:id', isValidID, (req, res, next) => {
-  if (validAuthor(req.body)) {
-    queries.update(req.params.id, req.body).then(authors => {
-      res.json(authors[0]);
-    });
-  } else {
-    next(new Error('Invalid Author'))
-  };
-});
-
-router.delete('/:id', isValidID, (req, res) => {
-  queries.delete(req.params.id).then(() => {
-    res.json({
-      deleted: true
-    });
-  });
-});
+module.exports = router;
