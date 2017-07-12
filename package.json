@@ -1,10 +1,13 @@
 {
   "name": "galv-reads-server",
   "version": "1.0.0",
-  "description": "Server-side of Galvanize Reads",
-  "main": "index.js",
+  "engines": {
+    "node": "7.9.0"
+  },
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "dev": "nodemon"
   },
   "repository": {
     "type": "git",
@@ -18,8 +21,11 @@
   },
   "homepage": "https://github.com/Bigminer106/galv-reads-server#readme",
   "dependencies": {
+    "body-parser": "^1.17.2",
     "cors": "^2.8.3",
+    "debug": "^2.6.8",
     "express": "^4.15.3",
+    "nodemon": "^1.11.0",
     "pg": "^6.4.0",
     "sqlite3": "^3.1.8"
   }
