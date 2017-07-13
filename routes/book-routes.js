@@ -24,11 +24,11 @@ router.get('/', (req, res) => {
   });
 });
 
-router.get('/:id', isValidID, (req, res) => {
-  queries.getOne(req.params.id).then(book) => {
-    res.json(book);
-  };
-});
+// router.get('/:id', isValidID, (req, res) => {
+//   queries.getOne(req.params.id).then(book) => {
+//     res.json(book);
+//   };
+// });
 
 router.post('/', (req, res, next) => {
   if (validBook(req.body)) {
