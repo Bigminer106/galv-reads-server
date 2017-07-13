@@ -24,11 +24,11 @@ router.get('/', (req, res) => {
   });
 });
 
-// router.get('/:id', isValidID, (req, res) => {
-//   queries.getOne(req.params.id).then(author) => {
-//     res.json(author);
-//   };
-// });
+router.get('/:id', isValidID, (req, res) => {
+  queries.getOne(req.params.id).then(author => {
+    res.json(author);
+  });
+});
 
 router.post('/', (req, res, next) => {
   if (validAuthor(req.body)) {
