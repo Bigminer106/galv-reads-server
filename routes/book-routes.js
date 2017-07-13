@@ -24,38 +24,38 @@ router.get('/', (req, res) => {
   });
 });
 
-// router.get('/:id', isValidID, (req, res) => {
-//   queries.getOne(req.params.id).then(book) => {
-//     res.json(book);
-//   };
-// });
-//
-// router.post('/', (req, res, next) => {
-//   if (validBook(req.body)) {
-//     queries.create(req.body).then(books => {
-//       res.json(books[0]);
-//     })
-//   } else {
-//     next(new Error('Invalid Book'))
-//   };
-// });
-//
-// router.put('/:id', isValidID, (req, res, next) => {
-//   if (validBook(req.body)) {
-//     queries.update(req.params.id, req.body).then(books => {
-//       res.json(books[0]);
-//     });
-//   } else {
-//     next(new Error('Invalid Book'))
-//   };
-// });
-//
-// router.delete('/:id', isValidID, (req, res) => {
-//   queries.delete(req.params.id).then(() => {
-//     res.json({
-//       deleted: true
-//     });
-//   });
-// });
+router.get('/:id', isValidID, (req, res) => {
+  queries.getOne(req.params.id).then(book) => {
+    res.json(book);
+  };
+});
+
+router.post('/', (req, res, next) => {
+  if (validBook(req.body)) {
+    queries.create(req.body).then(books => {
+      res.json(books[0]);
+    })
+  } else {
+    next(new Error('Invalid Book'))
+  };
+});
+
+router.put('/:id', isValidID, (req, res, next) => {
+  if (validBook(req.body)) {
+    queries.update(req.params.id, req.body).then(books => {
+      res.json(books[0]);
+    });
+  } else {
+    next(new Error('Invalid Book'))
+  };
+});
+
+router.delete('/:id', isValidID, (req, res) => {
+  queries.delete(req.params.id).then(() => {
+    res.json({
+      deleted: true
+    });
+  });
+});
 
 module.exports = router;
