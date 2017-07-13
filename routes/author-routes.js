@@ -7,7 +7,7 @@ function isValidID(req, res, next) {
     return next();
   } else {
     next(new Error('Invalid ID'));
-  }
+  };
 };
 
 function validAuthor(author) {
@@ -34,7 +34,7 @@ router.post('/', (req, res, next) => {
   if (validAuthor(req.body)) {
     queries.create(req.body).then(authors => {
       res.json(authors[0]);
-    })
+    });
   } else {
     next(new Error('Invalid Author'))
   };

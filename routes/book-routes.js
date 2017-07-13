@@ -7,7 +7,7 @@ function isValidID(req, res, next) {
     return next();
   } else {
     next(new Error('Invalid ID'));
-  }
+  };
 };
 
 function validBook(book) {
@@ -20,9 +20,9 @@ function validBook(book) {
 
 router.get('/', (req, res) => {
   queries.getAll().then(books => {
-    res.json(books)
-  })
-})
+    res.json(books);
+  });
+});
 
 router.get('/:id', isValidID, (req, res) => {
   queries.getOne(req.params.id).then(book => {
@@ -36,8 +36,8 @@ router.post('/', (req, res, next) => {
       res.json(books[0]);
     });
   } else {
-    next(new Error('Invalid Book'))
-  }
+    next(new Error('Invalid Book'));
+  };
 });
 
 router.put('/:id', isValidID, (req, res, next) => {
