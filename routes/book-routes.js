@@ -47,7 +47,7 @@ router.put('/:id', isValidID, (req, res, next) => {
     });
   } else {
     next(new Error('Invalid Book'))
-  });
+  };
 });
 
 router.delete('/:id', isValidID, (req, res) => {
