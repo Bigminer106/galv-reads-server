@@ -34,11 +34,11 @@ router.post('/', (req, res, next) => {
   if (validBook(req.body)) {
     queries.create(req.body).then(books => {
       res.json(books[0]);
-    })
+    });
   } else {
     next(new Error('Invalid Book'))
-  });
-})
+  }
+});
 
 router.put('/:id', isValidID, (req, res, next) => {
   if (validBook(req.body)) {
