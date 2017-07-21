@@ -33,7 +33,7 @@ router.get('/:id', isValidID, (req, res) => {
 router.post('/', (req, res, next) => {
   if (validAuthor(req.body)) {
     queries.create(req.body).then(authors => {
-      res.json(authors[0]);
+      res.json(authors);
     });
   } else {
     next(new Error('Invalid Author'))
@@ -43,7 +43,7 @@ router.post('/', (req, res, next) => {
 router.put('/:id', isValidID, (req, res, next) => {
   if (validAuthor(req.body)) {
     queries.update(req.params.id, req.body).then(authors => {
-      res.json(authors[0]);
+      res.json(authors[id]);
     });
   } else {
     next(new Error('Invalid Author'))

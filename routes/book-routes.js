@@ -33,17 +33,17 @@ router.get('/:id', isValidID, (req, res) => {
 router.post('/', (req, res, next) => {
   if (validBook(req.body)) {
     queries.create(req.body).then(books => {
-      res.json(books[0]);
+      res.json(books);
     });
   } else {
     next(new Error('Invalid Book'));
   };
 });
 
-router.put('/:id', isValidID, (req, res, next) => {
+router.patch('/:id', isValidID, (req, res, next) => {
   if (validBook(req.body)) {
     queries.update(req.params.id, req.body).then(books => {
-      res.json(books[0]);
+      res.json(books[id]);
     });
   } else {
     next(new Error('Invalid Book'))
