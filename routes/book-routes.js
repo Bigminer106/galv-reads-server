@@ -12,10 +12,10 @@ function isValidID(req, res, next) {
 
 function validBook(book) {
   const hasTitle = typeof book.title == 'string' && book.title.trim() != '';
-  const hasCover = typeof book.cover == 'string' && book.cover.trim() != '';
-  const hasDescription = typeof book.description == 'string' && book.description.trim() != '';
   const hasGenre = typeof book.genre == 'string' && book.genre.trim() != '';
-  return hasTitle && hasCover && hasDescription && hasGenre;
+  const hasDescription = typeof book.description == 'string' && book.description.trim() != '';  
+  const hasCover = typeof book.cover == 'string' && book.cover.trim() != '';
+  return hasTitle && hasGenre && hasDescription && hasCover;
 };
 
 router.get('/', (req, res) => {
